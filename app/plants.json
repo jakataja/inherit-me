@@ -1,0 +1,24 @@
+{
+  "trees": [
+    {
+      name: "",
+      price: "",
+      name: "",
+      leafs: "",
+      dust_time: "",
+      fruits: "",
+      flowers: "" }
+  ],
+
+  "flowers": [
+    {
+      name: "",
+      price: "",
+      name: "",
+      color: "",
+      life_cycle: "",
+      bloom: "",
+      env
+    }
+  ]
+}

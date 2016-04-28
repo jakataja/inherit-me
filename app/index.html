@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -5,14 +6,18 @@
     <title>Inherit Me</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/index.js"></script>
+    <script src="js/patternProto.js"></script>
   </head>
   <body>
+    <header role="banner" class="clearfix">
+    Title</header>
     <div>
-      <p>Select pattern:</p>
-      <select>
-        <option value="">prototypal</option>
-        <option value="">functional</option>
-        <option value="">pseudoclassical</option>
+      <label for="pattern">Select pattern:</label>
+      <select name="pattern" id="pattern">
+        <option value=""></option>
+        <option value="prototypal">prototypal</option>
+        <option value="functional">functional</option>
+        <option value="pseudoclassical">pseudoclassical</option>
       </select>
     </div>
   </body>

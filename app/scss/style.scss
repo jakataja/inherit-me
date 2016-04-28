@@ -1,3 +1,5 @@
+$color-purple: #a26ded;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,7 +12,77 @@ html {
 
 body {
   background: #eee;
-  color: #999;
-  font-family: sans-serif, monospace;
+  color: #333;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  line-height: 1.5em;
   text-align: center;
+}
+
+:focus { outline: 0; }
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1; /* ie 6/7 */
+}
+
+
+select {
+  -webkit-appearance: none;
+  background: transparent;
+  border: 2px $color-purple solid;
+  border-radius: 2px;
+  color: #a26ded;
+  font-weight: bold;
+  padding: 5px 10px;
+  width: 150px;
+  transition: background 1s;
+}
+
+option {
+  background: #fff;
+  padding: 5px 10px;
+  border: 2px $color-purple solid;
+}
+
+
+label {
+  position: relative;
+}
+
+label::before {
+  content: "";
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 116px;
+  width: 150px;
+  height: 28px;
+  z-index: -1;
+}
+
+label::after {
+  content: "";
+  border-right: 4px $color-purple solid;
+  border-bottom: 4px $color-purple solid;
+  position: absolute;
+  top: 5px;
+  right: -140px;
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+
+header[role="banner"] {
+  height: 100px;
 }
