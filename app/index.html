@@ -7,18 +7,23 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/index.js"></script>
     <script src="js/patternProto.js"></script>
+    <script src="js/patternFunc.js"></script>
+    <script src="js/patternClas.js"></script>
   </head>
   <body>
     <header role="banner" class="clearfix">
     Title</header>
-    <div>
-      <label for="pattern">Select pattern:</label>
-      <select name="pattern" id="pattern">
-        <option value=""></option>
-        <option value="prototypal">prototypal</option>
-        <option value="functional">functional</option>
-        <option value="pseudoclassical">pseudoclassical</option>
-      </select>
+    <div class="main clearfix">
+      <div class="selectbar">
+        <label for="pattern">Select pattern:</label>
+        <select name="pattern" id="pattern">
+          <option value=""></option>
+          <option value="prototypal">prototypal</option>
+          <option value="functional">functional</option>
+          <option value="pseudoclassical">pseudoclassical</option>
+        </select>
+      </div>
+      <div class="plant-list"></div>
     </div>
   </body>
 </html>

@@ -11,14 +11,17 @@ html {
 }
 
 body {
-  background: #eee;
+  background: #fff;
+  //background-image: url("../images/garden-flowers-1389057.jpg");
+  background-size: cover;
   color: #333;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   line-height: 1.5em;
   text-align: center;
+  height: 100%;
 }
 
-:focus { outline: 0; }
+:focus { outline: 0; }#9793ae#9791ab#cb9e5b#5e638b#cccc9a#f49e91
 
 .clearfix::before,
 .clearfix::after {
@@ -34,6 +37,16 @@ body {
   zoom: 1; /* ie 6/7 */
 }
 
+
+.main {
+  //background-color: rgba(255,255,255, 0.9);
+  border-top: 4px $color-purple solid;
+  height: 100%;
+}
+
+.selectbar {
+  padding: 20px 0;
+}
 
 select {
   -webkit-appearance: none;

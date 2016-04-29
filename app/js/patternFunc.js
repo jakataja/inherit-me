@@ -1,4 +1,4 @@
-function patterF() {
+function patternF() {
 
   'use strict';
 
