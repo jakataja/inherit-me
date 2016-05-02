@@ -2,25 +2,243 @@
   "plants": {
     "trees": [
       {
-        "name": "",
-        "price": "",
-        "name": "",
+        "name": "Brzoza",
+        "price": "23",
+        "leafs": "blaszkowate",
+        "dust_time": "III",
+        "fruits": null,
+        "flowers": null,
+        "life_cycle": "80-120",
+        "height": "7"
+      },
+      {
+        "name": "Wierzba",
+        "price": "21",
+        "leafs": "blaszkowate",
+        "dust_time": "IV",
+        "fruits": null,
+        "flowers": null,
+        "life_cycle": "",
+        "height": ""
+      },
+      {
+        "name": "Jodła pospolita",
+        "price": "23",
+        "leafs": "igły",
+        "dust_time": "1",
+        "fruits": null,
+        "flowers": "szyszki",
+        "life_cycle": "300-600",
+        "height": "40-55m"
+      },
+      {
+        "name": "Modrzew",
+        "price": "23",
+        "leafs": "blaszkowate",
+        "dust_time": "3",
+        "fruits": null,
+        "flowers": null,
+        "life_cycle": "",
+        "height": ""
+      },
+      {
+        "name": "Sosna",
+        "price": "23",
+        "leafs": "blaszkowate",
+        "dust_time": "3",
+        "fruits": null,
+        "flowers": null,
+        "life_cycle": "",
+        "height": ""
+      },
+      {
+        "name": "Świerk pospolity",
+        "price": "23",
+        "leafs": "igły",
+        "dust_time": "3",
+        "fruits": null,
+        "flowers": "szyszki",
+        "life_cycle": "200-300",
+        "height": ""
+      },
+      {
+        "name": "Bez czarny",
+        "price": "23",
+        "leafs": "pierzaste",
+        "dust_time": "3",
+        "fruits": "czarne baldachowate",
+        "flowers": "białe baldachowate",
+        "life_cycle": "",
+        "height": "7m"
+      },
+      {
+        "name": "Buk zwyczajny",
+        "price": "23",
+        "leafs": "blaszkowate",
+        "dust_time": "3",
+        "fruits": null,
+        "flowers": null,
+        "life_cycle": "",
+        "height": ""
+      },
+      {
+        "name": "Dąb szypułkowy",
+        "price": "23",
+        "leafs": "blaszkowate",
+        "dust_time": "3",
+        "fruits": "",
+        "flowers": "",
+        "life_cycle": "",
+        "height": ""
+      },
+      {
+        "name": "Dąb czerwony",
+        "price": "23",
+        "leafs": "blaszkowate",
+        "dust_time": "3",
+        "fruits": null,
+        "flowers": null,
+        "life_cycle": "",
+        "height": ""
+      },
+      {
+        "name": "Jabłoń domowa",
+        "price": "15",
+        "leafs": "blaszkowate",
+        "dust_time": "",
+        "fruits": "jabłka",
+        "flowers": "biało-różowe",
+        "life_cycle": "20-100",
+        "height": "5-10"
+      },
+      {
+        "name": "Grusza pospolita",
+        "price": "12",
+        "leafs": "blaszkowate",
+        "dust_time": "",
+        "fruits": "gruszki",
+        "flowers": "białe",
+        "life_cycle": "150-250",
+        "height": "15-20"
+      },
+      {
+        "name": "Wiśnia pospolita",
+        "price": "11",
         "leafs": "",
         "dust_time": "",
-        "fruits": "",
-        "flowers": ""
+        "fruits": "wiśnie",
+        "flowers": "białe",
+        "life_cycle": "15-30",
+        "height": "5-8"
+      },
+      {
+        "name": "Orzech włoski",
+        "price": "18",
+        "leafs": "blaszkowate",
+        "dust_time": "",
+        "fruits": "orzechy",
+        "flowers": "",
+        "life_cycle": "200-500",
+        "height": "20-25"
       }
     ],
 
     "flowers": [
       {
-        "name": "",
+        "name": "Tulipan",
+        "price": "2",
+        "flowers": "czerwony, dwubarwne",
+        "life_cycle": "wieloletnie",
+        "bloom": "wiosna",
+        "env": "sunny"
+      },
+      {
+        "name": "Rumianek pospolity",
+        "price": "0.50",
+        "flowers": "białe",
+        "life_cycle": "1",
+        "bloom": "wczesne lato",
+        "env": "ogród, słoneczne"
+      },
+      {
+        "name": "Werbena ogrodowa",
         "price": "",
-        "name": "",
-        "color": "",
-        "life_cycle": "",
-        "bloom": "",
-        "env": ""
+        "flowers": "białe, czerwone, fioletowe",
+        "life_cycle": "1",
+        "bloom": "wiosna, lato, jesień",
+        "env": "ogród, balkon, słoenczne"
+      },
+      {
+        "name": "Bratek ogrodowy",
+        "price": "",
+        "flowers": "wielobarwne",
+        "life_cycle": "1",
+        "bloom": "przedwiośnie-jesień",
+        "env": "słoneczne, ogród"
+      },
+      {
+        "name": "Goździk ogrowy",
+        "price": "",
+        "flowers": "białe, czerwone, różowe",
+        "life_cycle": "1-2",
+        "bloom": "lato",
+        "env": "słoneczne"
+      },
+      {
+        "name": "Maciejka",
+        "price": "",
+        "flowers": "fioletowe, różowe",
+        "life_cycle": "1",
+        "bloom": "lato",
+        "env": "sun"
+      },
+      {
+        "name": "Begonia królewka",
+        "price": "",
+        "flowers": "różowe",
+        "life_cycle": ">2",
+        "bloom": "przedwiośnie, zima",
+        "env": "doniczka, sun"
+      },
+      {
+        "name": "Skrzydłokwiat",
+        "price": "",
+        "flowers": "białe, kremowe",
+        "life_cycle": "wieloletnie",
+        "bloom": "wiosna, zima",
+        "env": "słońce, półcień, doniczka"
+      },
+      {
+        "name": "Krokus wiosenny",
+        "price": "",
+        "flowers": "białe, fioletowe, żółte",
+        "life_cycle": "wieloletnia",
+        "bloom": "przedwiośnie",
+        "env": "słońce, ogród, doniczka"
+      },
+      {
+        "name": "Sansewieria gwinejska",
+        "price": "",
+        "flowers": "żółte",
+        "life_cycle": "wieloletnia",
+        "bloom": "lato",
+        "env": "doniczka, słońce, półcień"
+      },
+      {
+        "name": "Nefrolepis",
+        "price": "",
+        "flowers": "-",
+        "life_cycle": "wieloletnie",
+        "bloom": "-",
+        "env": "doniczka, półcień"
+      },
+      {
+        "name": "Żonkil",
+        "price": "",
+        "flowers": "żółte",
+        "life_cycle": "wieloletnie",
+        "bloom": "wiosna",
+        "env": "ogród, półcień"
       }
     ]
   }

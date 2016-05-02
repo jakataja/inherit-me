@@ -11,7 +11,9 @@ function patternP() {
   function Plant(arg) {
     this.pattern = "prototypal";
     this.species = arg.name;
-    this.price = arg.price;
+    this.price = arg.price || "brak";
+    this.life_cycle = arg.life_cycle || "-";
+    this.flowers = arg.flowers || "-";
   }
 
   Plant.getPrice = function () {
@@ -22,10 +24,10 @@ function patternP() {
 
   function Tree(arg) {
     Plant.call(this, arg);
-    this.leafs = arg.leafs || null;
-    this.dust_time = arg.dust || null;
-    this.fruits = arg.fruits || null;
-    this.flowers = arg.flowers || null;
+    this.leafs = arg.leafs || "-";
+    this.dust_time = arg.dust || "-";
+    this.fruits = arg.fruits || "-";
+    this.height = arg.height || "-";
   }
 
   inherits(Plant, Tree);
@@ -38,10 +40,10 @@ function patternP() {
 
   function Flower(arg) {
     Plant.call(this, arg);
-    this.color = arg.color;
-    this.life_cycle = arg.life_cycle;
-    this.bloom_time = arg.bloom;
-    this.eviroment = arg.env;
+    //this.color = arg.color;
+    //this.life_cycle = arg.life_cycle;
+    this.bloom_time = arg.bloom || "-";
+    this.eviroment = arg.env || "-";
   }
 
   inherits(Plant, Flower);

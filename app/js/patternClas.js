@@ -4,8 +4,10 @@ function patternC() {
 
   function Plant(arg) {
     this.pattern = "pseudoclassical";
-    this.species = arg.name || null;
-    this.price = arg.price || null;
+    this.species = arg.name;
+    this.price = arg.price || "brak";
+    this.life_cycle = arg.life_cycle || "-";
+    this.flowers = arg.flowers || "-";
   }
 
   Plant.prototype.getPrice = function () {
@@ -16,10 +18,10 @@ function patternC() {
 
   function Tree(arg) {
     Plant.call(this, arg);
-    this.leafs = arg.leafs || null;
-    this.dust_time = arg.dust || null;
-    this.fruits = arg.fruits || null;
-    this.flowers = arg.flowers || null;
+    this.leafs = arg.leafs || "-";
+    this.dust_time = arg.dust || "-";
+    this.fruits = arg.fruits || "-";
+    this.height = arg.height || "-";
   }
 
   Tree.prototype = Object.create(Plant.prototype);
@@ -33,10 +35,10 @@ function patternC() {
   function Flower(arg) {
     Plant.call(this, arg);
 
-    this.color = arg.color;
-    this.life_cycle = arg.life_cycle;
-    this.bloom_time = arg.bloom;
-    this.eviroment = arg.env;
+    //this.color = arg.color;
+    //this.life_cycle = arg.life_cycle;
+    this.bloom_time = arg.bloom || "-";
+    this.eviroment = arg.env || "-";
   }
 
   Flower.prototype = Object.create(Plant.prototype);

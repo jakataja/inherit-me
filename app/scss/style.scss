@@ -15,13 +15,13 @@ body {
   //background-image: url("../images/garden-flowers-1389057.jpg");
   background-size: cover;
   color: #333;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-family: Arial, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   line-height: 1.5em;
   text-align: center;
   height: 100%;
 }
 
-:focus { outline: 0; }#9793ae#9791ab#cb9e5b#5e638b#cccc9a#f49e91
+:focus { outline: 0; }
 
 .clearfix::before,
 .clearfix::after {
@@ -99,3 +99,57 @@ label::after {
 header[role="banner"] {
   height: 100px;
 }
+
+.plant-list {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.plant-row {
+  background: #d1e8ba;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  text-align: left;
+
+  &:hover {
+    transition: background 0.7s;
+  }
+
+  div {
+    display: inline-block;
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+    width: 100px;
+
+    &:not(:last-child) {
+      border-right: 1px #fff solid;
+    }
+  }
+}
+
+.header {
+  background: #444;
+  color: #fff;
+  font-weight: bold;
+  > div {
+    float: left;
+  }
+}
+.tree {
+  background: #d1e8ba;
+  &:hover {
+    background: #96b680;
+  }
+}
+
+.flower {
+  background: #ffdedd;
+
+  &:hover {
+    background: #ce8b82;
+  }
+}
+.plant-name { font-weight: bold; }
+
