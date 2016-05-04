@@ -1,8 +1,11 @@
 var request = new XMLHttpRequest(),
   plants,
   plantsList = [],
-  treesList, plantRow,
-  pattern;
+  treesList,
+  plantRow,
+  pattern,
+  displayRowsNum = 10,
+  currPage = 0;
 
 
 request.onreadystatechange = function () {
@@ -16,46 +19,64 @@ request.onreadystatechange = function () {
 request.open('Get', 'plants.json');
 
 
-function createListRow(data) {
+function createListRow(data, index) {
 
-  var row;
+  var row,
+    rowField = [],
+    field,
+    fields = ["name", "price", "life", "flowers", "bloom", "environment", "dust", "fruits", "leafs", "height"];
 
+  // create list row
+  row = document.createElement('div');
   if (data instanceof pattern.Flower || data.instance === "Flower") {
-
-    row = "<div class='plant-row flower clearfix'>";
-    row += "<div class='plant-name'>" + data.species + "</div>";
-    row += "<div class='plant-price'>" + data.price + " PLN </div>";
-    row += "<div class='plant-life'>" + data.life_cycle + "</div>";
-    row += "<div class='plant-flowers'>" + data.flowers + "</div>";
-    row += "<div class='plant-bloom'>" + data.bloom_time + "</div>";
-    row += "<div class='plant-evn'>" + data.eviroment + "</div>";
-    row += "<div class='plant-dust'> - </div>";
-    row += "<div class='plant-fruits'> - </div>";
-    row += "<div class='plant-leafs'> - </div>";
-    row += "<div class='plant-height'> - </div>";
-    row += "</div>";
-
+    row.className = "plant-row clearfix flower";
   } else if (data instanceof pattern.Tree || data.instance === "Tree") {
+    row.className = "plant-row clearfix tree";
+  }
 
-    row = "<div class='plant-row tree clearfix'>";
-    row += "<div class='plant-name'>" + data.species + "</div>";
-    row += "<div class='plant-price'>" + data.price + " PLN </div>";
-    row += "<div class='plant-life'>" + data.life_cycle + "</div>";
-    row += "<div class='plant-flowers'>" + data.flowers + "</div>";
-    row += "<div class='plant-bloom'> - </div>";
-    row += "<div class='plant-evn'> - </div>";
-    row += "<div class='plant-dust'>" + data.dust_time + "</div>";
-    row += "<div class='plant-fruits'>" + data.fruits + "</div>";
-    row += "<div class='plant-leafs'>" + data.leafs + "</div>";
-    row += "<div class='plant-height'>" + data.height + "</div>";
-    row += "</div>";
+  // set field and classes
+  for (var i=0; i<fields.length; i++){
+    field = document.createElement('div');
+    field.className = "plant-" + fields[i] + " clearfix";
+    row.appendChild(field);
+  }
+
+  // fill fields with data
+ for(var f in data ){
+
+   if(typeof data[f] !== 'function' && f !== 'pattern' && f !== 'instance') {
+     var c =  f.split("_")[0];
+     if( c === 'species')
+      row.querySelector('.plant-name').innerHTML = data[f];
+     else
+      row.querySelector('.plant-'+c).innerHTML = data[f];
+   }
 
   }
 
-  document.querySelector(".plant-list").innerHTML += row;
+  row.style.opacity = 0;
+  document.getElementsByClassName('plant-list')[0].appendChild(row);
+
+  setTimeout(function () {
+    row.style.opacity = 1;
+  }, 50*index);
 
 }
 
+function clearList() {
+
+  var rows;
+
+  plantsList = [];
+
+  rows = document.getElementsByClassName('plant-row');
+  if( rows.length < 2) return;
+
+  for(var i=rows.length-1; i>0; i--){
+    row = rows[i];
+    row.parentNode.removeChild(row);
+  }
+}
 
 function displayData() {
 
@@ -80,11 +101,7 @@ function displayData() {
     break;
   }
 
-  plantsList = [];
-
-  h = document.querySelector('.header');
-  document.querySelector('.plant-list').innerHTML = "";
-  document.querySelector('.plant-list').appendChild(h);
+  clearList();
 
   plants.trees.map(function (item) {
     plantsList.push(new pattern.Tree(item));
@@ -94,9 +111,10 @@ function displayData() {
     plantsList.push(new pattern.Flower(item));
   });
 
-
-  plantsList.map(function (plant) {
-    createListRow(plant);
+  plantsList.map(function (plant, i) {
+    if( i > displayRowsNum*currPage && i < displayRowsNum*(currPage+1)) {
+      createListRow(plant, i);
+    }
   });
 
 }

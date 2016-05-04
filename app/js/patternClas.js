@@ -38,7 +38,7 @@ function patternC() {
     //this.color = arg.color;
     //this.life_cycle = arg.life_cycle;
     this.bloom_time = arg.bloom || "-";
-    this.eviroment = arg.env || "-";
+    this.environment = arg.environment || "-";
   }
 
   Flower.prototype = Object.create(Plant.prototype);

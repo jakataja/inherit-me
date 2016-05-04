@@ -40,7 +40,7 @@ function patternF() {
     that.instance = "Flower";
     //that.color = arg.color;
     that.bloom_time = arg.bloom || "-";
-    that.eviroment = arg.env || "-";
+    that.environment = arg.environment || "-";
 
     that.isGardenFlower = function () {
       return this.eviroment.includes('garden') ? true : false;

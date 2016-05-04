@@ -150,7 +150,7 @@
         "flowers": "czerwony, dwubarwne",
         "life_cycle": "wieloletnie",
         "bloom": "wiosna",
-        "env": "sunny"
+        "environment": "sunny"
       },
       {
         "name": "Rumianek pospolity",
@@ -158,7 +158,7 @@
         "flowers": "białe",
         "life_cycle": "1",
         "bloom": "wczesne lato",
-        "env": "ogród, słoneczne"
+        "environment": "ogród, słoneczne"
       },
       {
         "name": "Werbena ogrodowa",
@@ -166,7 +166,7 @@
         "flowers": "białe, czerwone, fioletowe",
         "life_cycle": "1",
         "bloom": "wiosna, lato, jesień",
-        "env": "ogród, balkon, słoenczne"
+        "environment": "ogród, balkon, słoenczne"
       },
       {
         "name": "Bratek ogrodowy",
@@ -174,7 +174,7 @@
         "flowers": "wielobarwne",
         "life_cycle": "1",
         "bloom": "przedwiośnie-jesień",
-        "env": "słoneczne, ogród"
+        "environment": "słoneczne, ogród"
       },
       {
         "name": "Goździk ogrowy",
@@ -182,7 +182,7 @@
         "flowers": "białe, czerwone, różowe",
         "life_cycle": "1-2",
         "bloom": "lato",
-        "env": "słoneczne"
+        "environment": "słoneczne"
       },
       {
         "name": "Maciejka",
@@ -190,7 +190,7 @@
         "flowers": "fioletowe, różowe",
         "life_cycle": "1",
         "bloom": "lato",
-        "env": "sun"
+        "environment": "sun"
       },
       {
         "name": "Begonia królewka",
@@ -198,7 +198,7 @@
         "flowers": "różowe",
         "life_cycle": ">2",
         "bloom": "przedwiośnie, zima",
-        "env": "doniczka, sun"
+        "environment": "doniczka, sun"
       },
       {
         "name": "Skrzydłokwiat",
@@ -206,7 +206,7 @@
         "flowers": "białe, kremowe",
         "life_cycle": "wieloletnie",
         "bloom": "wiosna, zima",
-        "env": "słońce, półcień, doniczka"
+        "environment": "słońce, półcień, doniczka"
       },
       {
         "name": "Krokus wiosenny",
@@ -214,7 +214,7 @@
         "flowers": "białe, fioletowe, żółte",
         "life_cycle": "wieloletnia",
         "bloom": "przedwiośnie",
-        "env": "słońce, ogród, doniczka"
+        "environment": "słońce, ogród, doniczka"
       },
       {
         "name": "Sansewieria gwinejska",
@@ -222,7 +222,7 @@
         "flowers": "żółte",
         "life_cycle": "wieloletnia",
         "bloom": "lato",
-        "env": "doniczka, słońce, półcień"
+        "environment": "doniczka, słońce, półcień"
       },
       {
         "name": "Nefrolepis",
@@ -230,7 +230,7 @@
         "flowers": "-",
         "life_cycle": "wieloletnie",
         "bloom": "-",
-        "env": "doniczka, półcień"
+        "environment": "doniczka, półcień"
       },
       {
         "name": "Żonkil",
@@ -238,7 +238,7 @@
         "flowers": "żółte",
         "life_cycle": "wieloletnie",
         "bloom": "wiosna",
-        "env": "ogród, półcień"
+        "environment": "ogród, półcień"
       }
     ]
   }
