@@ -3,7 +3,7 @@
     "trees": [
       {
         "name": "Brzoza",
-        "price": "23",
+        "price": "23.00",
         "leafs": "blaszkowate",
         "dust_time": "III",
         "fruits": null,
@@ -13,7 +13,7 @@
       },
       {
         "name": "Wierzba",
-        "price": "21",
+        "price": "21.00",
         "leafs": "blaszkowate",
         "dust_time": "IV",
         "fruits": null,
@@ -23,7 +23,7 @@
       },
       {
         "name": "Jodła pospolita",
-        "price": "23",
+        "price": "23.00",
         "leafs": "igły",
         "dust_time": "1",
         "fruits": null,
@@ -33,7 +33,7 @@
       },
       {
         "name": "Modrzew",
-        "price": "23",
+        "price": "23.00",
         "leafs": "blaszkowate",
         "dust_time": "3",
         "fruits": null,
@@ -43,7 +43,7 @@
       },
       {
         "name": "Sosna",
-        "price": "23",
+        "price": "23.00",
         "leafs": "blaszkowate",
         "dust_time": "3",
         "fruits": null,
@@ -53,7 +53,7 @@
       },
       {
         "name": "Świerk pospolity",
-        "price": "23",
+        "price": "23.00",
         "leafs": "igły",
         "dust_time": "3",
         "fruits": null,
@@ -63,7 +63,7 @@
       },
       {
         "name": "Bez czarny",
-        "price": "23",
+        "price": "23.00",
         "leafs": "pierzaste",
         "dust_time": "3",
         "fruits": "czarne baldachowate",
@@ -73,7 +73,7 @@
       },
       {
         "name": "Buk zwyczajny",
-        "price": "23",
+        "price": "23.00",
         "leafs": "blaszkowate",
         "dust_time": "3",
         "fruits": null,
@@ -83,7 +83,7 @@
       },
       {
         "name": "Dąb szypułkowy",
-        "price": "23",
+        "price": "23.00",
         "leafs": "blaszkowate",
         "dust_time": "3",
         "fruits": "",
@@ -93,7 +93,7 @@
       },
       {
         "name": "Dąb czerwony",
-        "price": "23",
+        "price": "23.00",
         "leafs": "blaszkowate",
         "dust_time": "3",
         "fruits": null,
@@ -103,7 +103,7 @@
       },
       {
         "name": "Jabłoń domowa",
-        "price": "15",
+        "price": "15.00",
         "leafs": "blaszkowate",
         "dust_time": "",
         "fruits": "jabłka",
@@ -113,7 +113,7 @@
       },
       {
         "name": "Grusza pospolita",
-        "price": "12",
+        "price": "12.00",
         "leafs": "blaszkowate",
         "dust_time": "",
         "fruits": "gruszki",
@@ -123,7 +123,7 @@
       },
       {
         "name": "Wiśnia pospolita",
-        "price": "11",
+        "price": "11.00",
         "leafs": "",
         "dust_time": "",
         "fruits": "wiśnie",
@@ -133,7 +133,7 @@
       },
       {
         "name": "Orzech włoski",
-        "price": "18",
+        "price": "18.00",
         "leafs": "blaszkowate",
         "dust_time": "",
         "fruits": "orzechy",
@@ -146,7 +146,7 @@
     "flowers": [
       {
         "name": "Tulipan",
-        "price": "2",
+        "price": "2.00",
         "flowers": "czerwony, dwubarwne",
         "life_cycle": "wieloletnie",
         "bloom": "wiosna",
@@ -162,7 +162,7 @@
       },
       {
         "name": "Werbena ogrodowa",
-        "price": "",
+        "price": "1.45",
         "flowers": "białe, czerwone, fioletowe",
         "life_cycle": "1",
         "bloom": "wiosna, lato, jesień",
@@ -170,7 +170,7 @@
       },
       {
         "name": "Bratek ogrodowy",
-        "price": "",
+        "price": "0.60",
         "flowers": "wielobarwne",
         "life_cycle": "1",
         "bloom": "przedwiośnie-jesień",
@@ -178,7 +178,7 @@
       },
       {
         "name": "Goździk ogrowy",
-        "price": "",
+        "price": "1.20",
         "flowers": "białe, czerwone, różowe",
         "life_cycle": "1-2",
         "bloom": "lato",
@@ -186,7 +186,7 @@
       },
       {
         "name": "Maciejka",
-        "price": "",
+        "price": "2.95",
         "flowers": "fioletowe, różowe",
         "life_cycle": "1",
         "bloom": "lato",
@@ -194,7 +194,7 @@
       },
       {
         "name": "Begonia królewka",
-        "price": "",
+        "price": "4.00",
         "flowers": "różowe",
         "life_cycle": ">2",
         "bloom": "przedwiośnie, zima",
@@ -202,7 +202,7 @@
       },
       {
         "name": "Skrzydłokwiat",
-        "price": "",
+        "price": "11.00",
         "flowers": "białe, kremowe",
         "life_cycle": "wieloletnie",
         "bloom": "wiosna, zima",
@@ -210,7 +210,7 @@
       },
       {
         "name": "Krokus wiosenny",
-        "price": "",
+        "price": "5.50",
         "flowers": "białe, fioletowe, żółte",
         "life_cycle": "wieloletnia",
         "bloom": "przedwiośnie",
@@ -218,7 +218,7 @@
       },
       {
         "name": "Sansewieria gwinejska",
-        "price": "",
+        "price": "13.00",
         "flowers": "żółte",
         "life_cycle": "wieloletnia",
         "bloom": "lato",
@@ -226,7 +226,7 @@
       },
       {
         "name": "Nefrolepis",
-        "price": "",
+        "price": "8.90",
         "flowers": "-",
         "life_cycle": "wieloletnie",
         "bloom": "-",
@@ -234,7 +234,7 @@
       },
       {
         "name": "Żonkil",
-        "price": "",
+        "price": "2.50",
         "flowers": "żółte",
         "life_cycle": "wieloletnie",
         "bloom": "wiosna",
