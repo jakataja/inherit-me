@@ -12,32 +12,34 @@
   </head>
   <body>
     <header role="banner" class="clearfix">
-      Katalog roślin
+      <div>&#x1f331; Green on top!</div>
     </header>
     <div class="main clearfix">
       <div class="selectbar">
-        <label for="pattern">Select pattern:</label>
+        <label for="pattern">Select pattern:
         <select name="pattern" id="pattern">
           <option value=""></option>
           <option value="prototypal">prototypal</option>
           <option value="functional">functional</option>
           <option value="pseudoclassical">pseudoclassical</option>
         </select>
+        </label>
       </div>
       <div class="plant-list">
         <div class="plant-row header clearfix">
           <div class="plant-name">Gatunek</div>
-          <div class="plant-price">Cena</div>
-          <div class="plant-life">Długość życia</div>
+          <div class="plant-price">Cena (pln)</div>
+          <div class="plant-life">Długość życia (lata)</div>
           <div class="plant-color">Kwiaty</div>
           <div class="plant-bloom">Czas kwitnienia</div>
-          <div class="plant-evn">Stanowisko</div>
+          <div class="plant-enviroment">Stanowisko</div>
           <div class="plant-dust">Okres pylenia</div>
           <div class="plant-fruits">Owoce</div>
           <div class="plant-leafs">Liście</div>
-          <div class="plant-height">Wysokość</div>
+          <div class="plant-height">Wysokość (m)</div>
         </div>
       </div>
+      <div class="pagination"><a class="page-btn prev">&#x276e; Prev page</a> <span class="page-num"></span> <a class="page-btn next">Next page &#x276f;</a></div>
     </div>
   </body>
 </html>

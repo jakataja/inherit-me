@@ -51,7 +51,6 @@ function createListRow(data, index) {
      else
       row.querySelector('.plant-'+c).innerHTML = data[f];
    }
-
   }
 
   row.style.opacity = 0;
@@ -59,15 +58,13 @@ function createListRow(data, index) {
 
   setTimeout(function () {
     row.style.opacity = 1;
-  }, 50*index);
+  }, 50*(index%displayRowsNum));
 
 }
 
 function clearList() {
 
   var rows;
-
-  plantsList = [];
 
   rows = document.getElementsByClassName('plant-row');
   if( rows.length < 2) return;
@@ -101,6 +98,7 @@ function displayData() {
     break;
   }
 
+  plantsList = [];
   clearList();
 
   plants.trees.map(function (item) {
@@ -117,15 +115,60 @@ function displayData() {
     }
   });
 
+  setPageNum();
+
 }
+
+function setPageNum() {
+  document.querySelector('.page-num').innerHTML = (currPage+1) +" / " + Math.ceil(plantsList.length/displayRowsNum);
+
+  document.querySelector('.pagination').style.visibility = "visible";
+}
+
+function prevPage(){
+
+  if ( currPage === 0 )
+    return;
+
+  currPage--;
+  setPageNum();
+  clearList();
+
+  plantsList.map(function (plant, i) {
+    if( i > displayRowsNum*currPage && i < displayRowsNum*(currPage+1)) {
+      createListRow(plant, i);
+    }
+  });
+}
+
+function nextPage(){
+
+  if ( currPage >= Math.floor(plantsList.length/displayRowsNum) )
+    return;
+
+  currPage++;
+  setPageNum();
+  clearList();
+
+  plantsList.map(function (plant, i) {
+    if( i > displayRowsNum*currPage && i < displayRowsNum*(currPage+1)) {
+      createListRow(plant, i);
+    }
+  });
+}
+
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  var selectList = document.querySelector("#pattern");
+  var selectList = document.querySelector("#pattern"),
+      nextBtn = document.querySelector('.next');
+      prevBtn = document.querySelector('.prev');
 
   request.send();
 
   selectList.addEventListener('change', displayData);
+  nextBtn.addEventListener('click', nextPage);
+  prevBtn.addEventListener('click', prevPage);
 
 });
 
