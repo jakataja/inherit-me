@@ -15,10 +15,51 @@ request.onreadystatechange = function () {
 
 request.open('Get', 'plants.json');
 
+
+function createListRow(data) {
+
+  var row;
+
+  if (data instanceof pattern.Flower || data.instance === "Flower") {
+
+    row = "<div class='plant-row flower clearfix'>";
+    row += "<div class='plant-name'>" + data.species + "</div>";
+    row += "<div class='plant-price'>" + data.price + " PLN </div>";
+    row += "<div class='plant-life'>" + data.life_cycle + "</div>";
+    row += "<div class='plant-flowers'>" + data.flowers + "</div>";
+    row += "<div class='plant-bloom'>" + data.bloom_time + "</div>";
+    row += "<div class='plant-evn'>" + data.eviroment + "</div>";
+    row += "<div class='plant-dust'> - </div>";
+    row += "<div class='plant-fruits'> - </div>";
+    row += "<div class='plant-leafs'> - </div>";
+    row += "<div class='plant-height'> - </div>";
+    row += "</div>";
+
+  } else if (data instanceof pattern.Tree || data.instance === "Tree") {
+
+    row = "<div class='plant-row tree clearfix'>";
+    row += "<div class='plant-name'>" + data.species + "</div>";
+    row += "<div class='plant-price'>" + data.price + " PLN </div>";
+    row += "<div class='plant-life'>" + data.life_cycle + "</div>";
+    row += "<div class='plant-flowers'>" + data.flowers + "</div>";
+    row += "<div class='plant-bloom'> - </div>";
+    row += "<div class='plant-evn'> - </div>";
+    row += "<div class='plant-dust'>" + data.dust_time + "</div>";
+    row += "<div class='plant-fruits'>" + data.fruits + "</div>";
+    row += "<div class='plant-leafs'>" + data.leafs + "</div>";
+    row += "<div class='plant-height'>" + data.height + "</div>";
+    row += "</div>";
+
+  }
+
+  document.querySelector(".plant-list").innerHTML += row;
+
+}
+
+
 function displayData() {
 
   plants = JSON.parse(window.localStorage.getItem("plantsList")).plants;
-  //document.querySelector(".plant-list").innerHTML = plants;
 
   var selectedOption = this.selectedOptions.item(0).value;
 
@@ -55,38 +96,7 @@ function displayData() {
 
 
   plantsList.map(function (plant) {
-
-    var plantRow;
-
-    if (plant instanceof pattern.Flower || plant.instance === "Flower") {
-      plantRow = "<div class='plant-row flower clearfix'>";
-      plantRow += "<div class='plant-name'>" + plant.species + "</div>";
-      plantRow += "<div class='plant-price'>" + plant.price + " PLN </div>";
-      plantRow += "<div class='plant-life'>" + plant.life_cycle + "</div>";
-      plantRow += "<div class='plant-flowers'>" + plant.flowers + "</div>";
-      plantRow += "<div class='plant-bloom'>" + plant.bloom_time + "</div>";
-      plantRow += "<div class='plant-evn'>" + plant.eviroment + "</div>";
-      plantRow += "<div class='plant-dust'> - </div>";
-      plantRow += "<div class='plant-fruits'> - </div>";
-      plantRow += "<div class='plant-leafs'> - </div>";
-      plantRow += "<div class='plant-height'> - </div>";
-      plantRow += "</div>";
-    } else if (plant instanceof pattern.Tree || plant.instance === "Tree") {
-      plantRow = "<div class='plant-row tree clearfix'>";
-      plantRow += "<div class='plant-name'>" + plant.species + "</div>";
-      plantRow += "<div class='plant-price'>" + plant.price + " PLN </div>";
-      plantRow += "<div class='plant-life'>" + plant.life_cycle + "</div>";
-      plantRow += "<div class='plant-flowers'>" + plant.flowers + "</div>";
-      plantRow += "<div class='plant-bloom'> - </div>";
-      plantRow += "<div class='plant-evn'> - </div>";
-      plantRow += "<div class='plant-dust'>" + plant.dust_time + "</div>";
-      plantRow += "<div class='plant-fruits'>" + plant.fruits + "</div>";
-      plantRow += "<div class='plant-leafs'>" + plant.leafs + "</div>";
-      plantRow += "<div class='plant-height'>" + plant.height + "</div>";
-      plantRow += "</div>";
-    }
-
-    document.querySelector(".plant-list").innerHTML += plantRow;
+    createListRow(plant);
   });
 
 }
