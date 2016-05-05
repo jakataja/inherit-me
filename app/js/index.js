@@ -81,6 +81,19 @@ function clearList() {
   }
 }
 
+
+function renderList(list) {
+
+  list = list || plantsList;
+
+  list.map(function (plant, i) {
+    if (i > displayRowsNum * currPage && i < displayRowsNum * (currPage + 1)) {
+      createListRow(plant, i);
+    }
+  });
+}
+
+
 function getLocalStorage()
 {
   return JSON.parse(localStorage.getItem("plantsList")).plants;
@@ -97,13 +110,6 @@ function createList() {
   });
 
   sortList('species');
-
-  plantsList.map(function (plant, i) {
-    if (i > displayRowsNum * currPage && i < displayRowsNum * (currPage + 1)) {
-      createListRow(plant, i);
-    }
-  });
-
 }
 
 function displayData() {
@@ -131,13 +137,17 @@ function displayData() {
   plantsList = [];
   clearList();
   createList();
+  renderList();
   setPageNum();
 }
 
-function setPageNum() {
-  document.querySelector('.page-num').innerHTML = (currPage + 1) + " / " + Math.ceil(plantsList.length / displayRowsNum);
+function setPageNum(list) {
+  list = list || plantsList;
+  document.querySelector('.page-num').innerHTML = (currPage + 1) + " / " + Math.ceil(list.length / displayRowsNum);
   document.querySelector('.pagination').style.visibility = "visible";
 }
+
+
 
 function prevPage() {
 
@@ -188,6 +198,23 @@ function sortList(field) {
 
 }
 
+function showPotFlowers() {
+
+  if(this.checked){
+    var filteredList = plantsList.filter(function(plant) {
+      if(plant.isHomeFlower && plant.isHomeFlower())
+        return plant;
+    });
+    clearList();
+    renderList(filteredList);
+    document.querySelector('.pagination').style.visibility = "hidden";
+  } else {
+    clearList();
+    renderList();
+    document.querySelector('.pagination').style.visibility = "visible";
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 
   selectList = document.querySelector("#pattern");
@@ -203,5 +230,6 @@ document.addEventListener('DOMContentLoaded', function () {
   selectList.addEventListener('change', displayData);
   nextBtn.addEventListener('click', nextPage);
   prevBtn.addEventListener('click', prevPage);
+  houseplants.addEventListener('change', showPotFlowers);
 
 });
