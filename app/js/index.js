@@ -1,9 +1,11 @@
 var request = new XMLHttpRequest(),
   plants,
   plantsList = [],
-  treesList,
-  plantRow,
   pattern,
+  selectedOption,
+  selectList,
+  nextBtn,
+  prevBtn,
   displayRowsNum = 10,
   currPage = 0;
 
@@ -11,17 +13,20 @@ var request = new XMLHttpRequest(),
 request.onreadystatechange = function () {
   if (request.readyState === 4) {
     if (request.status === 200) {
-      window.localStorage.setItem("plantsList", request.responseText);
+      localStorage.setItem("plantsList", request.responseText);
+      plants = getLocalStorage();
     }
   }
 };
 
 request.open('Get', 'plants.json');
 
-
 function createListRow(data, index) {
 
   var row,
+    f,
+    i,
+    c,
     rowField = [],
     field,
     fields = ["name", "price", "life", "flowers", "bloom", "environment", "dust", "fruits", "leafs", "height"];
@@ -35,22 +40,22 @@ function createListRow(data, index) {
   }
 
   // set field and classes
-  for (var i=0; i<fields.length; i++){
+  for (i = 0; i < fields.length; i++) {
     field = document.createElement('div');
     field.className = "plant-" + fields[i] + " clearfix";
     row.appendChild(field);
   }
 
   // fill fields with data
- for(var f in data ){
-
-   if(typeof data[f] !== 'function' && f !== 'pattern' && f !== 'instance') {
-     var c =  f.split("_")[0];
-     if( c === 'species')
-      row.querySelector('.plant-name').innerHTML = data[f];
-     else
-      row.querySelector('.plant-'+c).innerHTML = data[f];
-   }
+  for (f in data ) {
+    if (typeof data[f] !== 'function' && f !== 'pattern' && f !== 'instance') {
+      c =  f.split("_")[0];
+      if (c === 'species') {
+        row.querySelector('.plant-name').innerHTML = data[f];
+      } else {
+        row.querySelector('.plant-' + c).innerHTML = data[f];
+      }
+    }
   }
 
   row.style.opacity = 0;
@@ -58,28 +63,51 @@ function createListRow(data, index) {
 
   setTimeout(function () {
     row.style.opacity = 1;
-  }, 50*(index%displayRowsNum));
+  }, 50 * (index % displayRowsNum));
 
 }
 
 function clearList() {
 
-  var rows;
+  var row, rows, i;
 
   rows = document.getElementsByClassName('plant-row');
-  if( rows.length < 2) return;
+  if (rows.length < 2)
+  return;
 
-  for(var i=rows.length-1; i>0; i--){
+  for (i = rows.length - 1; i > 0; i--) {
     row = rows[i];
     row.parentNode.removeChild(row);
   }
 }
 
+function getLocalStorage()
+{
+  return JSON.parse(localStorage.getItem("plantsList")).plants;
+}
+
+function createList() {
+
+  plants.trees.map(function (item) {
+    plantsList.push(new pattern.Tree(item));
+  });
+
+  plants.flowers.map(function (item) {
+    plantsList.push(new pattern.Flower(item));
+  });
+
+  plantsList.map(function (plant, i) {
+    if (i > displayRowsNum * currPage && i < displayRowsNum * (currPage + 1)) {
+      createListRow(plant, i);
+    }
+  });
+
+}
+
 function displayData() {
 
-  plants = JSON.parse(window.localStorage.getItem("plantsList")).plants;
-
-  var selectedOption = this.selectedOptions.item(0).value;
+  //plants = getLocalStorage();
+  selectedOption = this.selectedOptions.item(0).value;
 
   switch (selectedOption) {
   case "functional":
@@ -100,34 +128,18 @@ function displayData() {
 
   plantsList = [];
   clearList();
-
-  plants.trees.map(function (item) {
-    plantsList.push(new pattern.Tree(item));
-  });
-
-  plants.flowers.map(function (item) {
-    plantsList.push(new pattern.Flower(item));
-  });
-
-  plantsList.map(function (plant, i) {
-    if( i > displayRowsNum*currPage && i < displayRowsNum*(currPage+1)) {
-      createListRow(plant, i);
-    }
-  });
-
+  createList();
   setPageNum();
-
 }
 
 function setPageNum() {
-  document.querySelector('.page-num').innerHTML = (currPage+1) +" / " + Math.ceil(plantsList.length/displayRowsNum);
-
+  document.querySelector('.page-num').innerHTML = (currPage + 1) + " / " + Math.ceil(plantsList.length / displayRowsNum);
   document.querySelector('.pagination').style.visibility = "visible";
 }
 
-function prevPage(){
+function prevPage() {
 
-  if ( currPage === 0 )
+  if (currPage === 0)
     return;
 
   currPage--;
@@ -135,15 +147,15 @@ function prevPage(){
   clearList();
 
   plantsList.map(function (plant, i) {
-    if( i > displayRowsNum*currPage && i < displayRowsNum*(currPage+1)) {
+    if (i > displayRowsNum * currPage && i < displayRowsNum * (currPage + 1)) {
       createListRow(plant, i);
     }
   });
 }
 
-function nextPage(){
+function nextPage() {
 
-  if ( currPage >= Math.floor(plantsList.length/displayRowsNum) )
+  if (currPage >= Math.floor(plantsList.length / displayRowsNum))
     return;
 
   currPage++;
@@ -151,25 +163,26 @@ function nextPage(){
   clearList();
 
   plantsList.map(function (plant, i) {
-    if( i > displayRowsNum*currPage && i < displayRowsNum*(currPage+1)) {
+    if (i > displayRowsNum * currPage && i < displayRowsNum * (currPage + 1)) {
       createListRow(plant, i);
     }
   });
 }
 
-
 document.addEventListener('DOMContentLoaded', function () {
 
-  var selectList = document.querySelector("#pattern"),
-      nextBtn = document.querySelector('.next');
-      prevBtn = document.querySelector('.prev');
+  selectList = document.querySelector("#pattern"),
+  nextBtn = document.querySelector('.next'),
+  prevBtn = document.querySelector('.prev');
 
-  request.send();
+  if (localStorage && localStorage.getItem('plantsList')) {
+    plants = getLocalStorage();
+  } else {
+    request.send();
+  }
 
   selectList.addEventListener('change', displayData);
   nextBtn.addEventListener('click', nextPage);
   prevBtn.addEventListener('click', prevPage);
 
 });
-
-
