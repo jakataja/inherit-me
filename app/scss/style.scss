@@ -23,7 +23,6 @@ body {
   font-family: Arial, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   line-height: 1.5em;
   text-align: center;
-  height: 100%;
 }
 
 :focus { outline: 0; }
@@ -54,22 +53,19 @@ header[role='banner'] {
     margin: 0 auto;
     padding: 20px 0;
     text-align: left;
-
     vertical-align: middle;
     width: 1000px;
   }
 }
 
 .main {
-  //background-color: rgba(255,255,255, 0.9);
-  height: 100%;
+
 }
 
 .selectbar {
   background: $color-gray;
   margin-bottom: 20px;
   padding: 20px 0;
-
 }
 
 select {
@@ -85,15 +81,19 @@ select {
 }
 
 option {
-  background: #fff;
-  padding: 5px 10px;
+  background: $color-white;
   border: 2px $color-green solid;
+  padding: 5px 10px;
+}
+
+input {
+  visibility: hidden;
 }
 
 
 label {
   position: relative;
-  //z-index: 0;
+  line-height: 29px;
 }
 
 /*label::before {
@@ -107,19 +107,44 @@ label {
   //z-index: 0;
 }*/
 
-label::after {
-  content: "";
+label[for='pattern']::after {
   border-right: 4px $color-green solid;
   border-bottom: 4px $color-green solid;
-  position: absolute;
-  top: 2px;
-  right: 8px;
-  width: 8px;
+  content: "";
   height: 8px;
+  position: absolute;
+  right: 8px;
+  top: 2px;
   transform: rotate(45deg);
-  //z-index: 1;
+  width: 8px;
 }
 
+[type="checkbox"] + label::before {
+
+}
+
+[type="checkbox"] + label::before {
+  background: $color-white;
+  border-radius: 4px;
+  content: "";
+  height: 29px;
+  left: -35px;
+  position: absolute;
+  transition: all 0.7s;
+  width: 29px;
+}
+
+[type="checkbox"]:checked + label::after {
+  border-bottom: 4px $color-green solid;
+  border-right: 4px $color-green solid;
+  content: "";
+  height: 10px;
+  left: -25px;
+  position: absolute;
+  top: -1px;
+  transform: rotate(40deg);
+  width: 6px;
+}
 
 .plant-list {
   margin: 0 auto;
