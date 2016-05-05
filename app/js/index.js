@@ -96,6 +96,8 @@ function createList() {
     plantsList.push(new pattern.Flower(item));
   });
 
+  sortList('species');
+
   plantsList.map(function (plant, i) {
     if (i > displayRowsNum * currPage && i < displayRowsNum * (currPage + 1)) {
       createListRow(plant, i);
@@ -169,10 +171,27 @@ function nextPage() {
   });
 }
 
+function sortList(field) {
+
+  plantsList.sort(function(a,b){
+
+    var f_a = a[field].toLowerCase(),
+      f_b = b[field].toLowerCase();
+
+    if ( f_a < f_b )
+      return -1;
+    if ( f_a > f_b )
+      return 1;
+    return 0;
+
+  });
+
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 
-  selectList = document.querySelector("#pattern"),
-  nextBtn = document.querySelector('.next'),
+  selectList = document.querySelector("#pattern");
+  nextBtn = document.querySelector('.next');
   prevBtn = document.querySelector('.prev');
 
   if (localStorage && localStorage.getItem('plantsList')) {
