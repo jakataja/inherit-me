@@ -17,7 +17,7 @@ function patternP() {
   }
 
   Plant.getPrice = function () {
-    return this.price;
+    return parseFloat(this.price);
   };
 
   /**************** Flower ***************/
@@ -49,11 +49,11 @@ function patternP() {
   inherits(Plant, Flower);
 
   Flower.prototype.isGardenFlower = function () {
-    return this.eviroment.includes('garden') ? true : false;
+    return this.environment.includes('garden') ? true : false;
   };
 
   Flower.prototype.isHomeFlower = function () {
-    return this.eviroment.includes('garden') ? true : false;
+    return this.environment.includes('house') ? true : false;
   };
 
   return {

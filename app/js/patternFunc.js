@@ -43,11 +43,11 @@ function patternF() {
     that.environment = arg.environment || "-";
 
     that.isGardenFlower = function () {
-      return this.eviroment.includes('garden') ? true : false;
+      return this.environment.includes('garden') ? true : false;
     };
 
     that.isHomeFlower = function () {
-      return this.eviroment.includes('garden') ? true : false;
+      return this.environment.includes('house') ? true : false;
     };
 
     return that;

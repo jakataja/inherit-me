@@ -44,11 +44,11 @@ function patternC() {
   Flower.prototype = Object.create(Plant.prototype);
 
   Flower.prototype.isGardenFlower = function () {
-    return this.eviroment.includes('garden') ? true : false;
+    return this.environment.includes('garden') ? true : false;
   };
 
   Flower.prototype.isHomeFlower = function () {
-    return this.eviroment.includes('garden') ? true : false;
+    return this.environment.includes('house') ? true : false;
   };
 
   return {
