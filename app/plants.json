@@ -67,7 +67,7 @@
         "leafs": "pierzaste",
         "dust_time": "3",
         "fruits": "czarne baldachowate",
-        "flowers": "białe baldachowate",
+        "flowers": "white baldachowate",
         "life_cycle": "",
         "height": "7m"
       },
@@ -92,7 +92,7 @@
         "height": ""
       },
       {
-        "name": "Dąb czerwony",
+        "name": "Dąb red",
         "price": "23.00",
         "leafs": "blaszkowate",
         "dust_time": "3",
@@ -106,8 +106,8 @@
         "price": "15.00",
         "leafs": "blaszkowate",
         "dust_time": "",
-        "fruits": "jabłka",
-        "flowers": "biało-różowe",
+        "fruits": "apple",
+        "flowers": "biało-pink",
         "life_cycle": "20-100",
         "height": "5-10"
       },
@@ -116,8 +116,8 @@
         "price": "12.00",
         "leafs": "blaszkowate",
         "dust_time": "",
-        "fruits": "gruszki",
-        "flowers": "białe",
+        "fruits": "pear",
+        "flowers": "white",
         "life_cycle": "150-250",
         "height": "15-20"
       },
@@ -126,8 +126,8 @@
         "price": "11.00",
         "leafs": "",
         "dust_time": "",
-        "fruits": "wiśnie",
-        "flowers": "białe",
+        "fruits": "cherry",
+        "flowers": "white",
         "life_cycle": "15-30",
         "height": "5-8"
       },
@@ -136,7 +136,7 @@
         "price": "18.00",
         "leafs": "blaszkowate",
         "dust_time": "",
-        "fruits": "orzechy",
+        "fruits": "nut",
         "flowers": "",
         "life_cycle": "200-500",
         "height": "20-25"
@@ -147,82 +147,82 @@
       {
         "name": "Tulipan",
         "price": "2.00",
-        "flowers": "czerwony, dwubarwne",
+        "flowers": "red, bicolor",
         "life_cycle": "wieloletnie",
-        "bloom": "wiosna",
+        "bloom": "spring",
         "environment": "sunny"
       },
       {
         "name": "Rumianek pospolity",
         "price": "0.50",
-        "flowers": "białe",
+        "flowers": "white",
         "life_cycle": "1",
-        "bloom": "wczesne lato",
-        "environment": "ogród, słoneczne"
+        "bloom": "early summer",
+        "environment": "garden, sun"
       },
       {
         "name": "Werbena ogrodowa",
         "price": "1.45",
-        "flowers": "białe, czerwone, fioletowe",
+        "flowers": "white, red, purple",
         "life_cycle": "1",
-        "bloom": "wiosna, lato, jesień",
-        "environment": "ogród, balkon, słoenczne"
+        "bloom": "spring, summer, autumn",
+        "environment": "garden, balcony, sun"
       },
       {
         "name": "Bratek ogrodowy",
         "price": "0.60",
-        "flowers": "wielobarwne",
+        "flowers": "multicolor",
         "life_cycle": "1",
-        "bloom": "przedwiośnie-jesień",
-        "environment": "słoneczne, ogród"
+        "bloom": "early spring-autumn",
+        "environment": "sun, garden"
       },
       {
         "name": "Goździk ogrowy",
         "price": "1.20",
-        "flowers": "białe, czerwone, różowe",
+        "flowers": "white, red, pink",
         "life_cycle": "1-2",
-        "bloom": "lato",
-        "environment": "słoneczne"
+        "bloom": "summer",
+        "environment": "sun"
       },
       {
         "name": "Maciejka",
         "price": "2.95",
-        "flowers": "fioletowe, różowe",
+        "flowers": "purple, pink",
         "life_cycle": "1",
-        "bloom": "lato",
+        "bloom": "summer",
         "environment": "sun"
       },
       {
         "name": "Begonia królewka",
         "price": "4.00",
-        "flowers": "różowe",
+        "flowers": "pink",
         "life_cycle": ">2",
-        "bloom": "przedwiośnie, zima",
-        "environment": "doniczka, sun"
+        "bloom": "early spring, winter",
+        "environment": "house, sun"
       },
       {
         "name": "Skrzydłokwiat",
         "price": "11.00",
-        "flowers": "białe, kremowe",
+        "flowers": "white, kremowe",
         "life_cycle": "wieloletnie",
-        "bloom": "wiosna, zima",
-        "environment": "słońce, półcień, doniczka"
+        "bloom": "spring, winter",
+        "environment": "sun, partial shade, house"
       },
       {
         "name": "Krokus wiosenny",
         "price": "5.50",
-        "flowers": "białe, fioletowe, żółte",
+        "flowers": "white, purple, yellow",
         "life_cycle": "wieloletnia",
-        "bloom": "przedwiośnie",
-        "environment": "słońce, ogród, doniczka"
+        "bloom": "early spring",
+        "environment": "sun, garden, house"
       },
       {
         "name": "Sansewieria gwinejska",
         "price": "13.00",
-        "flowers": "żółte",
+        "flowers": "yellow",
         "life_cycle": "wieloletnia",
-        "bloom": "lato",
-        "environment": "doniczka, słońce, półcień"
+        "bloom": "summer",
+        "environment": "house, sun, partial shade"
       },
       {
         "name": "Nefrolepis",
@@ -230,15 +230,15 @@
         "flowers": "-",
         "life_cycle": "wieloletnie",
         "bloom": "-",
-        "environment": "doniczka, półcień"
+        "environment": "house, partial shade"
       },
       {
         "name": "Żonkil",
         "price": "2.50",
-        "flowers": "żółte",
+        "flowers": "yellow",
         "life_cycle": "wieloletnie",
-        "bloom": "wiosna",
-        "environment": "ogród, półcień"
+        "bloom": "spring",
+        "environment": "garden, partial shade"
       }
     ]
   }
