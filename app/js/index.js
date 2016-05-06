@@ -1,16 +1,25 @@
-var request = new XMLHttpRequest(),
-  plants,
+/*jslint plusplus: true */
+
+var plants,
   plantsList = [],
+  currList = [],
   pattern,
-  selectedOption,
-  selectList,
+  selectedPattern,
   nextBtn,
   prevBtn,
+  housePlantsChbx,
+  sortPriceChbx,
   displayRowsNum = 10,
-  currPage = 0;
+  currPage = 0,
+  request = new XMLHttpRequest();
 
+function getLocalStorage() {
+  "use strict";
+  return JSON.parse(localStorage.getItem("plantsList")).plants;
+}
 
 request.onreadystatechange = function () {
+  "use strict";
   if (request.readyState === 4) {
     if (request.status === 200) {
       localStorage.setItem("plantsList", request.responseText);
@@ -23,12 +32,9 @@ request.open('Get', 'plants.json');
 
 function createListRow(data, index) {
 
-  var row,
-    f,
-    i,
-    c,
-    rowField = [],
-    field,
+  "use strict";
+
+  var row, f, i, c, rowField = [], field,
     fields = ["name", "price", "life", "flowers", "bloom", "environment", "dust", "fruits", "leafs", "height"];
 
   // create list row
@@ -69,11 +75,14 @@ function createListRow(data, index) {
 
 function clearList() {
 
-  var row, rows, i;
+  "use strict";
 
+  var row, rows, i;
   rows = document.getElementsByClassName('plant-row');
-  if (rows.length < 2)
-  return;
+
+  if (rows.length < 2) {
+    return;
+  }
 
   for (i = rows.length - 1; i > 0; i--) {
     row = rows[i];
@@ -81,25 +90,38 @@ function clearList() {
   }
 }
 
+function renderList() {
 
-function renderList(list) {
-
-  list = list || plantsList;
-
-  list.map(function (plant, i) {
+  "use strict";
+  currList.map(function (plant, i) {
     if (i > displayRowsNum * currPage && i < displayRowsNum * (currPage + 1)) {
       createListRow(plant, i);
     }
   });
 }
 
+function sortList() {
 
-function getLocalStorage()
-{
-  return JSON.parse(localStorage.getItem("plantsList")).plants;
+  "use strict";
+  currList.sort(function (a, b) {
+
+    var f_a = a.species.toLowerCase(),
+      f_b = b.species.toLowerCase();
+
+    if (f_a < f_b) {
+      return -1;
+    }
+    if (f_a > f_b) {
+      return 1;
+    }
+    return 0;
+
+  });
 }
 
 function createList() {
+
+  "use strict";
 
   plants.trees.map(function (item) {
     plantsList.push(new pattern.Tree(item));
@@ -109,15 +131,100 @@ function createList() {
     plantsList.push(new pattern.Flower(item));
   });
 
-  sortList('species');
+  currList = plantsList;
+  sortList();
+}
+
+function setPageNum() {
+  "use strict";
+  document.querySelector('.page-num').innerHTML = (currPage + 1) + " / " + Math.ceil(currList.length / displayRowsNum);
+  document.querySelector('.pagination').style.visibility = "visible";
+}
+
+function prevPage() {
+
+  "use strict";
+  if (currPage === 0) {
+    return;
+  }
+
+  currPage--;
+  setPageNum();
+  clearList();
+
+  currList.map(function (plant, i) {
+    if (i > displayRowsNum * currPage && i < displayRowsNum * (currPage + 1)) {
+      createListRow(plant, i);
+    }
+  });
+}
+
+function nextPage() {
+
+  "use strict";
+  if (currPage >= Math.floor(currList.length / displayRowsNum)) {
+    return;
+  }
+
+  currPage++;
+  setPageNum();
+  clearList();
+
+  currList.map(function (plant, i) {
+    if (i > displayRowsNum * currPage && i < displayRowsNum * (currPage + 1)) {
+      createListRow(plant, i);
+    }
+  });
+}
+
+function sortByPrice() {
+  "use strict";
+  currList.sort(function (a, b) {
+    var f_a = a.getPrice(),
+      f_b = b.getPrice();
+    return f_a - f_b;
+  });
+}
+
+function filterHouseFlowers() {
+  "use strict";
+  currList = plantsList.filter(function (plant) {
+    if (plant.isHomeFlower && plant.isHomeFlower()) {
+      return plant;
+    }
+  });
+}
+
+function clickFilterHouseFlowers() {
+
+  "use strict";
+
+  clearList();
+  currPage = 0;
+
+  if (housePlantsChbx.checked) {
+    filterHouseFlowers();
+  } else {
+    currList = plantsList;
+    (sortPriceChbx.checked ? sortByPrice : sortList)();
+  }
+
+  renderList();
+  setPageNum();
+}
+
+function clickSortByPrice() {
+  "use strict";
+  clearList();
+  (sortPriceChbx.checked ? sortByPrice : sortList)();
+  renderList();
 }
 
 function displayData() {
 
-  //plants = getLocalStorage();
-  selectedOption = this.selectedOptions.item(0).value;
+  "use strict";
 
-  switch (selectedOption) {
+  switch (selectedPattern.value) {
   case "functional":
     pattern = patternF();
     break;
@@ -131,95 +238,47 @@ function displayData() {
     break;
 
   default:
+    pattern = undefined;
     break;
   }
 
-  plantsList = [];
-  clearList();
-  createList();
-  renderList();
-  setPageNum();
-}
-
-function setPageNum(list) {
-  list = list || plantsList;
-  document.querySelector('.page-num').innerHTML = (currPage + 1) + " / " + Math.ceil(list.length / displayRowsNum);
-  document.querySelector('.pagination').style.visibility = "visible";
-}
-
-
-
-function prevPage() {
-
-  if (currPage === 0)
-    return;
-
-  currPage--;
-  setPageNum();
+  currList = plantsList = [];
   clearList();
 
-  plantsList.map(function (plant, i) {
-    if (i > displayRowsNum * currPage && i < displayRowsNum * (currPage + 1)) {
-      createListRow(plant, i);
+  if (pattern) {
+    housePlantsChbx.disabled = false;
+    sortPriceChbx.disabled = false;
+
+    createList();
+
+    if (sortPriceChbx.checked) {
+      sortByPrice();
     }
-  });
-}
 
-function nextPage() {
-
-  if (currPage >= Math.floor(plantsList.length / displayRowsNum))
-    return;
-
-  currPage++;
-  setPageNum();
-  clearList();
-
-  plantsList.map(function (plant, i) {
-    if (i > displayRowsNum * currPage && i < displayRowsNum * (currPage + 1)) {
-      createListRow(plant, i);
+    if (housePlantsChbx.checked) {
+      filterHouseFlowers();
     }
-  });
-}
 
-function sortList(field) {
-
-  plantsList.sort(function(a,b){
-
-    var f_a = a[field].toLowerCase(),
-      f_b = b[field].toLowerCase();
-
-    if ( f_a < f_b )
-      return -1;
-    if ( f_a > f_b )
-      return 1;
-    return 0;
-
-  });
-
-}
-
-function showPotFlowers() {
-
-  if(this.checked){
-    var filteredList = plantsList.filter(function(plant) {
-      if(plant.isHomeFlower && plant.isHomeFlower())
-        return plant;
-    });
-    clearList();
-    renderList(filteredList);
-    document.querySelector('.pagination').style.visibility = "hidden";
-  } else {
-    clearList();
     renderList();
-    document.querySelector('.pagination').style.visibility = "visible";
+    setPageNum();
+
+  } else {
+
+    document.querySelector('.pagination').style.visibility = "hidden";
+    housePlantsChbx.disabled = true;
+    sortPriceChbx.disabled = true;
+
   }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  selectList = document.querySelector("#pattern");
+  "use strict";
+  selectedPattern = document.querySelector("#pattern");
   nextBtn = document.querySelector('.next');
   prevBtn = document.querySelector('.prev');
+  housePlantsChbx = document.querySelector('#houseplants');
+  sortPriceChbx = document.querySelector('#sortprice');
 
   if (localStorage && localStorage.getItem('plantsList')) {
     plants = getLocalStorage();
@@ -227,9 +286,10 @@ document.addEventListener('DOMContentLoaded', function () {
     request.send();
   }
 
-  selectList.addEventListener('change', displayData);
+  selectedPattern.addEventListener('change', displayData);
   nextBtn.addEventListener('click', nextPage);
   prevBtn.addEventListener('click', prevPage);
-  houseplants.addEventListener('change', showPotFlowers);
+  housePlantsChbx.addEventListener('change', clickFilterHouseFlowers);
+  sortPriceChbx.addEventListener('change', clickSortByPrice);
 
 });
