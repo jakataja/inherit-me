@@ -38,7 +38,6 @@ function patternF() {
   function Flower(arg) {
     var that = Plant(arg);
     that.instance = "Flower";
-    //that.color = arg.color;
     that.bloom_time = arg.bloom || "-";
     that.environment = arg.environment || "-";
 
@@ -60,4 +59,3 @@ function patternF() {
   };
 
 }
-

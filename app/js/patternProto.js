@@ -1,4 +1,3 @@
-//(function () {
 function patternP() {
   'use strict';
 
@@ -20,7 +19,7 @@ function patternP() {
     return parseFloat(this.price);
   };
 
-  /**************** Flower ***************/
+  /**************** Tree ***************/
 
   function Tree(arg) {
     Plant.call(this, arg);
@@ -40,8 +39,6 @@ function patternP() {
 
   function Flower(arg) {
     Plant.call(this, arg);
-    //this.color = arg.color;
-    //this.life_cycle = arg.life_cycle;
     this.bloom_time = arg.bloom || "-";
     this.environment = arg.environment || "-";
   }
@@ -63,4 +60,3 @@ function patternP() {
   };
 
 }
-//}());
