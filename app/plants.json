@@ -148,7 +148,7 @@
         "name": "Tulipan",
         "price": "2.00",
         "flowers": "red, bicolor",
-        "life_cycle": "wieloletnie",
+        "life_cycle": "many",
         "bloom": "spring",
         "environment": "sunny"
       },
@@ -204,7 +204,7 @@
         "name": "Skrzydłokwiat",
         "price": "11.00",
         "flowers": "white, kremowe",
-        "life_cycle": "wieloletnie",
+        "life_cycle": "many",
         "bloom": "spring, winter",
         "environment": "sun, partial shade, house"
       },
@@ -212,7 +212,7 @@
         "name": "Krokus wiosenny",
         "price": "5.50",
         "flowers": "white, purple, yellow",
-        "life_cycle": "wieloletnia",
+        "life_cycle": "many",
         "bloom": "early spring",
         "environment": "sun, garden, house"
       },
@@ -220,7 +220,7 @@
         "name": "Sansewieria gwinejska",
         "price": "13.00",
         "flowers": "yellow",
-        "life_cycle": "wieloletnia",
+        "life_cycle": "many",
         "bloom": "summer",
         "environment": "house, sun, partial shade"
       },
@@ -228,7 +228,7 @@
         "name": "Nefrolepis",
         "price": "8.90",
         "flowers": "-",
-        "life_cycle": "wieloletnie",
+        "life_cycle": "many",
         "bloom": "-",
         "environment": "house, partial shade"
       },
@@ -236,7 +236,7 @@
         "name": "Żonkil",
         "price": "2.50",
         "flowers": "yellow",
-        "life_cycle": "wieloletnie",
+        "life_cycle": "many",
         "bloom": "spring",
         "environment": "garden, partial shade"
       }
