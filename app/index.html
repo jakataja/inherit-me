@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inherit Me</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/patternProto.js"></script>
-    <script src="js/patternFunc.js"></script>
-    <script src="js/patternClas.js"></script>
-    <script src="js/index.js"></script>
   </head>
   <body>
     <header role="banner" class="clearfix">
@@ -16,20 +12,18 @@
     </header>
     <div class="main clearfix">
       <div class="selectbar">
-        <div>
-          <label for="pattern">Select pattern:
+        <label for="pattern">Select pattern:
           <select name="pattern" id="pattern">
-            <option value=""></option>
+            <option value="empty"></option>
             <option value="prototypal">prototypal</option>
             <option value="functional">functional</option>
             <option value="pseudoclassical">pseudoclassical</option>
           </select>
           </label>
-        </div>
-        <div>
-        <input type="checkbox" id="houseplants" name="houseplants"/><label for="houseplants">Show houseplants</label>
-      </div>
-      </div>
+        <input type="checkbox" id="houseplants" name="houseplants" disabled /><label for="houseplants">Show houseplants</label>
+        <input type="checkbox" id="sortprice" name="sortprice" disabled/><label for="sortprice">Sort by price</label>
+       </div>
+
 
       <div class="plant-list">
         <div class="plant-row header clearfix">
@@ -47,5 +41,10 @@
       </div>
       <div class="pagination"><a class="page-btn prev" role="button">&#x276e; Prev page</a> <span class="page-num"></span> <a class="page-btn next" role="button">Next page &#x276f;</a></div>
     </div>
+
+    <script src="js/patternProto.js"></script>
+    <script src="js/patternFunc.js"></script>
+    <script src="js/patternClas.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
