@@ -17,7 +17,6 @@ html {
 
 body {
   background: #fff;
-  //background-image: url("../images/garden-flowers-1389057.jpg");
   background-size: cover;
   color: #333;
   font-family: Arial, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -58,10 +57,6 @@ header[role='banner'] {
   }
 }
 
-.main {
-
-}
-
 .selectbar {
   background: $color-gray;
   margin-bottom: 20px;
@@ -78,6 +73,10 @@ select {
   padding: 7px 10px;
   width: 150px;
   z-index: 100;
+
+  &::-ms-expand {
+    display: none;
+  }
 }
 
 option {
@@ -86,26 +85,11 @@ option {
   padding: 5px 10px;
 }
 
-input {
-  visibility: hidden;
-}
-
-
 label {
-  position: relative;
   line-height: 29px;
+  margin-left: 70px;
+  position: relative;
 }
-
-/*label::before {
-  content: "";
-  background: #fff;
-  position: absolute;
-  top: 0;
-  left: 109px;
-  width: 146px;
-  height: 28px;
-  //z-index: 0;
-}*/
 
 label[for='pattern']::after {
   border-right: 4px $color-green solid;
@@ -113,14 +97,18 @@ label[for='pattern']::after {
   content: "";
   height: 8px;
   position: absolute;
-  right: 8px;
+  right: 12px;
   top: 2px;
   transform: rotate(45deg);
   width: 8px;
 }
 
-[type="checkbox"] + label::before {
+[type="checkbox"] {
+  visibility: hidden;
+}
 
+[type="checkbox"]:disabled + label {
+  opacity: 0.5;
 }
 
 [type="checkbox"] + label::before {
@@ -144,6 +132,17 @@ label[for='pattern']::after {
   top: -1px;
   transform: rotate(40deg);
   width: 6px;
+}
+
+[type="text"] {
+  background: $color-white;
+  border: 0;
+  border-radius: 4px;
+  color: $color-green;
+  font-weight: bold;
+  padding: 7px 10px;
+  text-align: right;
+  width: 60px;
 }
 
 .plant-list {
@@ -171,23 +170,20 @@ label[for='pattern']::after {
     width: 100px;
 
     &:not(:last-child) {
-      border-right: 1px #fff solid;
+      border-right: 1px $color-white solid;
     }
   }
 }
 
 .header {
   background: $color-darkgray;
-  color: #fff;
+  color: $color-white;
   font-weight: bold;
-
-  > div {
-    //float: left;
-  }
 }
 
 .tree {
   background: #d1e8ba;
+
   &:hover {
     background: #96b680;
   }
@@ -201,7 +197,9 @@ label[for='pattern']::after {
   }
 }
 
-.plant-name { font-weight: bold; }
+.plant-name {
+  font-weight: bold;
+}
 
 .pagination {
   visibility: hidden;
