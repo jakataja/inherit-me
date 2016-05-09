@@ -106,13 +106,13 @@ function sortList() {
   "use strict";
   currList.sort(function (a, b) {
 
-    var f_a = a.species.toLowerCase(),
-      f_b = b.species.toLowerCase();
+    var A = a.species.toLowerCase(),
+      B = b.species.toLowerCase();
 
-    if (f_a < f_b) {
+    if (A < B) {
       return -1;
     }
-    if (f_a > f_b) {
+    if (A > B) {
       return 1;
     }
     return 0;
