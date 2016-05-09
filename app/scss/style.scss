@@ -117,7 +117,7 @@ label {
     opacity: 0.5;
   }
 
-  & + label::before {
+  + label::before {
     background: $color-white;
     border-radius: 4px;
     content: "";
