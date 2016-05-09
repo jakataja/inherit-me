@@ -1,8 +1,10 @@
+/*exported patternF */
+
 function patternF() {
 
   "use strict";
 
-  function Plant(arg) {
+  function plant(arg) {
     var that = {};
     that.pattern = "functional";
     that.species = arg.name;
@@ -18,8 +20,8 @@ function patternF() {
 
   /**************** Tree ***************/
 
-  function Tree(arg) {
-    var that = Plant(arg);
+  function tree(arg) {
+    var that = plant(arg);
     that.instance = "Tree";
     that.leafs = arg.leafs || "-";
     that.dustTime = arg.dust || "-";
@@ -35,8 +37,8 @@ function patternF() {
 
   /**************** Flower ***************/
 
-  function Flower(arg) {
-    var that = Plant(arg);
+  function flower(arg) {
+    var that = plant(arg);
     that.instance = "Flower";
     that.bloomTime = arg.bloom || "-";
     that.environment = arg.environment || "-";
@@ -53,9 +55,9 @@ function patternF() {
   }
 
   return {
-    Plant: Plant,
-    Tree: Tree,
-    Flower: Flower
+    Plant: plant,
+    Tree: tree,
+    Flower: flower
   };
 
 }

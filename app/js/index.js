@@ -1,4 +1,5 @@
 /*jslint plusplus: true */
+/*global patternF, patternP, patternC: false */
 
 var plants,
   plantsList = [],
@@ -28,17 +29,17 @@ request.onreadystatechange = function () {
   }
 };
 
-request.open('Get', 'plants.json');
+request.open("Get", "plants.json");
 
 function createListRow(data, index) {
 
   "use strict";
 
-  var row, f, i, c, rowField = [], field,
+  var row, f, i, c, field,
     fields = ["name", "price", "life", "flowers", "bloom", "environment", "dust", "fruits", "leafs", "height"];
 
   // create list row
-  row = document.createElement('div');
+  row = document.createElement("div");
   if (data instanceof pattern.Flower || data.instance === "Flower") {
     row.className = "plant-row clearfix flower";
   } else if (data instanceof pattern.Tree || data.instance === "Tree") {
@@ -47,26 +48,25 @@ function createListRow(data, index) {
 
   // set field and classes
   for (i = 0; i < fields.length; i++) {
-    field = document.createElement('div');
+    field = document.createElement("div");
     field.className = "plant-" + fields[i] + " clearfix";
     row.appendChild(field);
   }
 
   // fill fields with data
   for (f in data ) {
-    if (typeof data[f] !== 'function' && f !== 'pattern' && f !== 'instance') {
-      //c =  f.split("_")[0];
+    if (typeof data[f] !== "function" && f !== "pattern" && f !== "instance") {
       c =  f.split(/[A-Z]/)[0];
-      if (c === 'species') {
-        row.querySelector('.plant-name').innerHTML = data[f];
+      if (c === "species") {
+        row.querySelector(".plant-name").innerHTML = data[f];
       } else {
-        row.querySelector('.plant-' + c).innerHTML = data[f];
+        row.querySelector(".plant-" + c).innerHTML = data[f];
       }
     }
   }
 
   row.style.opacity = 0;
-  document.getElementsByClassName('plant-list')[0].appendChild(row);
+  document.getElementsByClassName("plant-list")[0].appendChild(row);
 
   setTimeout(function () {
     row.style.opacity = 1;
@@ -79,7 +79,7 @@ function clearList() {
   "use strict";
 
   var row, rows, i;
-  rows = document.getElementsByClassName('plant-row');
+  rows = document.getElementsByClassName("plant-row");
 
   if (rows.length < 2) {
     return;
@@ -138,8 +138,8 @@ function createList() {
 
 function setPageNum() {
   "use strict";
-  document.querySelector('.page-num').innerHTML = (currPage + 1) + " / " + Math.ceil(currList.length / displayRowsNum);
-  document.querySelector('.pagination').style.visibility = "visible";
+  document.querySelector(".page-num").innerHTML = (currPage + 1) + " / " + Math.ceil(currList.length / displayRowsNum);
+  document.querySelector(".pagination").style.visibility = "visible";
 }
 
 function prevPage() {
@@ -265,32 +265,32 @@ function displayData() {
 
   } else {
 
-    document.querySelector('.pagination').style.visibility = "hidden";
+    document.querySelector(".pagination").style.visibility = "hidden";
     housePlantsChbx.disabled = true;
     sortPriceChbx.disabled = true;
 
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
 
   "use strict";
   selectedPattern = document.querySelector("#pattern");
-  nextBtn = document.querySelector('.next');
-  prevBtn = document.querySelector('.prev');
-  housePlantsChbx = document.querySelector('#houseplants');
-  sortPriceChbx = document.querySelector('#sortprice');
+  nextBtn = document.querySelector(".next");
+  prevBtn = document.querySelector(".prev");
+  housePlantsChbx = document.querySelector("#houseplants");
+  sortPriceChbx = document.querySelector("#sortprice");
 
-  if (localStorage && localStorage.getItem('plantsList')) {
+  if (localStorage && localStorage.getItem("plantsList")) {
     plants = getLocalStorage();
   } else {
     request.send();
   }
 
-  selectedPattern.addEventListener('change', displayData);
-  nextBtn.addEventListener('click', nextPage);
-  prevBtn.addEventListener('click', prevPage);
-  housePlantsChbx.addEventListener('change', clickFilterHouseFlowers);
-  sortPriceChbx.addEventListener('change', clickSortByPrice);
+  selectedPattern.addEventListener("change", displayData);
+  nextBtn.addEventListener("click", nextPage);
+  prevBtn.addEventListener("click", prevPage);
+  housePlantsChbx.addEventListener("change", clickFilterHouseFlowers);
+  sortPriceChbx.addEventListener("change", clickSortByPrice);
 
 });

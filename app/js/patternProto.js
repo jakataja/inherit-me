@@ -1,3 +1,5 @@
+/*exported patternP */
+
 function patternP() {
   "use strict";
 
