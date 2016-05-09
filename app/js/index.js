@@ -191,9 +191,9 @@ function nextPage() {
 function sortByPrice() {
   "use strict";
   currList.sort(function (a, b) {
-    var f_a = a.getPrice(),
-      f_b = b.getPrice();
-    return f_a - f_b;
+    var A = a.getPrice(),
+      B = b.getPrice();
+    return A - B;
   });
 }
 
