@@ -5,6 +5,13 @@ $color-gray: #e9ede7;
 $color-darkgray: #444444;
 $color-white: #ffffff;
 
+$color-list-lightgreen: #d1e8ba;
+$color-list-darkgreen: #96b680;
+$color-list-lightpink: #ffdedd;
+$color-list-darkpink: #ce8b82;
+
+$color-text: #333;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,9 +23,9 @@ html {
 }
 
 body {
-  background: #fff;
+  background: $color-white;
   background-size: cover;
-  color: #333;
+  color: $color-text;
   font-family: Arial, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   line-height: 1.5em;
   text-align: center;
@@ -37,11 +44,11 @@ body {
 }
 
 .clearfix {
-  zoom: 1; /* ie 6/7 */
+  zoom: 1; // ie 6/7
 }
 
 
-header[role='banner'] {
+[role="banner"] {
   background: $color-green;
   border-bottom: 4px $color-darkgreen solid;
 
@@ -91,9 +98,9 @@ label {
   position: relative;
 }
 
-label[for='pattern']::after {
-  border-right: 4px $color-green solid;
+.label-select::after {
   border-bottom: 4px $color-green solid;
+  border-right: 4px $color-green solid;
   content: "";
   height: 8px;
   position: absolute;
@@ -105,33 +112,33 @@ label[for='pattern']::after {
 
 [type="checkbox"] {
   visibility: hidden;
-}
 
-[type="checkbox"]:disabled + label {
-  opacity: 0.5;
-}
+  &:disabled + label {
+    opacity: 0.5;
+  }
 
-[type="checkbox"] + label::before {
-  background: $color-white;
-  border-radius: 4px;
-  content: "";
-  height: 29px;
-  left: -35px;
-  position: absolute;
-  transition: all 0.7s;
-  width: 29px;
-}
+  & + label::before {
+    background: $color-white;
+    border-radius: 4px;
+    content: "";
+    height: 29px;
+    left: -35px;
+    position: absolute;
+    transition: all 0.7s;
+    width: 29px;
+  }
 
-[type="checkbox"]:checked + label::after {
-  border-bottom: 4px $color-green solid;
-  border-right: 4px $color-green solid;
-  content: "";
-  height: 10px;
-  left: -25px;
-  position: absolute;
-  top: -1px;
-  transform: rotate(40deg);
-  width: 6px;
+  &:checked + label::after {
+    border-bottom: 4px $color-green solid;
+    border-right: 4px $color-green solid;
+    content: "";
+    height: 10px;
+    left: -25px;
+    position: absolute;
+    top: -1px;
+    transform: rotate(40deg);
+    width: 6px;
+  }
 }
 
 [type="text"] {
@@ -151,7 +158,6 @@ label[for='pattern']::after {
 }
 
 .plant-row {
-  background: #d1e8ba;
   border-radius: 5px;
   margin-bottom: 5px;
   text-align: left;
@@ -182,18 +188,18 @@ label[for='pattern']::after {
 }
 
 .tree {
-  background: #d1e8ba;
+  background: $color-list-lightgreen;
 
   &:hover {
-    background: #96b680;
+    background: $color-list-darkgreen;
   }
 }
 
 .flower {
-  background: #ffdedd;
+  background: $color-list-lightpink;
 
   &:hover {
-    background: #ce8b82;
+    background: $color-list-darkpink;
   }
 }
 
