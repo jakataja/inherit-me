@@ -7,7 +7,7 @@ function patternF() {
     that.pattern = "functional";
     that.species = arg.name;
     that.price = arg.price || " brak ";
-    that.life_cycle = arg.life_cycle || "-";
+    that.lifeCycle = arg.lifeCycle || "-";
     that.flowers = arg.flowers || "-";
 
     that.getPrice = function () {
@@ -22,12 +22,12 @@ function patternF() {
     var that = Plant(arg);
     that.instance = "Tree";
     that.leafs = arg.leafs || "-";
-    that.dust_time = arg.dust || "-";
+    that.dustTime = arg.dust || "-";
     that.fruits = arg.fruits || "-";
     that.height = arg.height || "-";
 
     that.isDustingIn = function (month) {
-      return this.dust_time === month ? true : false;
+      return this.dustTime === month ? true : false;
     };
 
     return that;
@@ -38,7 +38,7 @@ function patternF() {
   function Flower(arg) {
     var that = Plant(arg);
     that.instance = "Flower";
-    that.bloom_time = arg.bloom || "-";
+    that.bloomTime = arg.bloom || "-";
     that.environment = arg.environment || "-";
 
     that.isGardenFlower = function () {

@@ -55,7 +55,8 @@ function createListRow(data, index) {
   // fill fields with data
   for (f in data ) {
     if (typeof data[f] !== 'function' && f !== 'pattern' && f !== 'instance') {
-      c =  f.split("_")[0];
+      //c =  f.split("_")[0];
+      c =  f.split(/[A-Z]/)[0];
       if (c === 'species') {
         row.querySelector('.plant-name').innerHTML = data[f];
       } else {

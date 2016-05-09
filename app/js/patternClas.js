@@ -6,7 +6,7 @@ function patternC() {
     this.pattern = "pseudoclassical";
     this.species = arg.name;
     this.price = arg.price || "brak";
-    this.life_cycle = arg.life_cycle || "-";
+    this.lifeCycle = arg.lifeCycle || "-";
     this.flowers = arg.flowers || "-";
   }
 
@@ -19,7 +19,7 @@ function patternC() {
   function Tree(arg) {
     Plant.call(this, arg);
     this.leafs = arg.leafs || "-";
-    this.dust_time = arg.dust || "-";
+    this.dustTime = arg.dust || "-";
     this.fruits = arg.fruits || "-";
     this.height = arg.height || "-";
   }
@@ -27,14 +27,14 @@ function patternC() {
   Tree.prototype = Object.create(Plant.prototype);
 
   Tree.prototype.isDustingIn = function (month) {
-    return this.dust_time === month ? true : false;
+    return this.dustTime === month ? true : false;
   };
 
   /**************** Flower ***************/
 
   function Flower(arg) {
     Plant.call(this, arg);
-    this.bloom_time = arg.bloom || "-";
+    this.bloomTime = arg.bloom || "-";
     this.environment = arg.environment || "-";
   }
 
