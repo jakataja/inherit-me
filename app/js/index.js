@@ -147,8 +147,9 @@ function createList() {
 
 function setPageNum() {
   "use strict";
-  var pageNum = (currPage + 1) + " / " + Math.ceil(currList.length / displayRowsNum);
-  document.querySelector(".page-num").innerHTML = pageNum;
+  var lastPageNum = Math.ceil(currList.length / displayRowsNum),
+    pages = (currPage + 1) + " / " + lastPageNum;
+  document.querySelector(".page-num").innerHTML = pages;
   document.querySelector(".pagination").style.visibility = "visible";
 }
 
