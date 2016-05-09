@@ -1,6 +1,6 @@
 function patternF() {
 
-  'use strict';
+  "use strict";
 
   function Plant(arg) {
     var that = {};
@@ -42,11 +42,11 @@ function patternF() {
     that.environment = arg.environment || "-";
 
     that.isGardenFlower = function () {
-      return this.environment.includes('garden') ? true : false;
+      return this.environment.includes("garden") ? true : false;
     };
 
     that.isHomeFlower = function () {
-      return this.environment.includes('house') ? true : false;
+      return this.environment.includes("house") ? true : false;
     };
 
     return that;

@@ -1,6 +1,6 @@
 function patternC() {
 
-  'use strict';
+  "use strict";
 
   function Plant(arg) {
     this.pattern = "pseudoclassical";
@@ -41,11 +41,11 @@ function patternC() {
   Flower.prototype = Object.create(Plant.prototype);
 
   Flower.prototype.isGardenFlower = function () {
-    return this.environment.includes('garden') ? true : false;
+    return this.environment.includes("garden") ? true : false;
   };
 
   Flower.prototype.isHomeFlower = function () {
-    return this.environment.includes('house') ? true : false;
+    return this.environment.includes("house") ? true : false;
   };
 
   return {

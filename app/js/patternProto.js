@@ -1,5 +1,5 @@
 function patternP() {
-  'use strict';
+  "use strict";
 
   function inherits(Parent, Child) {
     function F() {}
@@ -46,11 +46,11 @@ function patternP() {
   inherits(Plant, Flower);
 
   Flower.prototype.isGardenFlower = function () {
-    return this.environment.includes('garden') ? true : false;
+    return this.environment.includes("garden") ? true : false;
   };
 
   Flower.prototype.isHomeFlower = function () {
-    return this.environment.includes('house') ? true : false;
+    return this.environment.includes("house") ? true : false;
   };
 
   return {
