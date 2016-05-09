@@ -36,7 +36,16 @@ function createListRow(data, index) {
   "use strict";
 
   var row, f, i, c, field,
-    fields = ["name", "price", "life", "flowers", "bloom", "environment", "dust", "fruits", "leafs", "height"];
+    fields = ["name",
+      "price",
+      "life",
+      "flowers",
+      "bloom",
+      "environment",
+      "dust",
+      "fruits",
+      "leafs",
+      "height"];
 
   // create list row
   row = document.createElement("div");
@@ -138,7 +147,8 @@ function createList() {
 
 function setPageNum() {
   "use strict";
-  document.querySelector(".page-num").innerHTML = (currPage + 1) + " / " + Math.ceil(currList.length / displayRowsNum);
+  var pageNum = (currPage + 1) + " / " + Math.ceil(currList.length / displayRowsNum);
+  document.querySelector(".page-num").innerHTML = pageNum;
   document.querySelector(".pagination").style.visibility = "visible";
 }
 
