@@ -1,6 +1,6 @@
-/*exported patternP */
+/*exported PatternP */
 
-function patternP() {
+var PatternP = (function () {
   "use strict";
 
   function inherits(Parent, Child) {
@@ -61,4 +61,4 @@ function patternP() {
     Flower: Flower
   };
 
-}
+}());

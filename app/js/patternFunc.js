@@ -1,6 +1,6 @@
-/*exported patternF */
+/*exported PatternF */
 
-function patternF() {
+var PatternF = (function () {
 
   "use strict";
 
@@ -60,4 +60,4 @@ function patternF() {
     Flower: flower
   };
 
-}
+}());

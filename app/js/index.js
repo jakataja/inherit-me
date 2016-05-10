@@ -1,5 +1,5 @@
 /*jslint plusplus: true */
-/*global patternF, patternP, patternC: false */
+/*global PatternF, PatternP, PatternC: false */
 
 var plants,
   plantsList = [],
@@ -238,15 +238,15 @@ function displayData() {
 
   switch (selectedPattern.value) {
   case "functional":
-    pattern = patternF();
+    pattern = PatternF;
     break;
 
   case "prototypal":
-    pattern = patternP();
+    pattern = PatternP;
     break;
 
   case "pseudoclassical":
-    pattern = patternC();
+    pattern = PatternC;
     break;
 
   default:
