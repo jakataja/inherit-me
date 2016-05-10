@@ -187,20 +187,21 @@ label {
   font-weight: bold;
 }
 
-.tree {
-  background: $color-list-lightgreen;
+
+@mixin background( $bcolor, $hcolor) {
+  background: $bcolor;
 
   &:hover {
-    background: $color-list-darkgreen;
+    background: $hcolor;
   }
 }
 
-.flower {
-  background: $color-list-lightpink;
+.tree {
+  @include background($color-list-lightgreen, $color-list-darkgreen);
+}
 
-  &:hover {
-    background: $color-list-darkpink;
-  }
+.flower {
+  @include background($color-list-lightpink, $color-list-darkpink);
 }
 
 .plant-name {
