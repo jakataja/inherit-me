@@ -12,6 +12,17 @@ $color-list-darkpink: #ce8b82;
 
 $color-text: #333;
 
+$base-font: 12px;
+
+@mixin background( $bcolor, $hcolor) {
+  background: $bcolor;
+
+  &:hover {
+    background: $hcolor;
+  }
+}
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -169,7 +180,7 @@ label {
 
   div {
     display: table-cell;
-    font-size: 12px;
+    font-size: $base-font;
     padding: 5px;
     text-align: center;
     vertical-align: middle;
@@ -185,15 +196,6 @@ label {
   background: $color-darkgray;
   color: $color-white;
   font-weight: bold;
-}
-
-
-@mixin background( $bcolor, $hcolor) {
-  background: $bcolor;
-
-  &:hover {
-    background: $hcolor;
-  }
 }
 
 .tree {
@@ -217,7 +219,7 @@ label {
   border-radius: 4px;
   cursor: pointer;
   display: inline-block;
-  font-size: 12px;
+  font-size: $base-font;
   font-weight: bold;
   padding: 5px 10px;
 }
@@ -228,7 +230,7 @@ label {
   color: $color-white;
   cursor: pointer;
   display: inline-block;
-  font-size: 12px;
+  font-size: $base-font;
   font-weight: bold;
   padding: 5px 10px;
 }
