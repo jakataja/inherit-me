@@ -22,6 +22,16 @@ $base-font: 12px;
   }
 }
 
+@mixin pagination-elem($bcolor, $tcolor) {
+  background: $bcolor;
+  border-radius: 4px;
+  color: $tcolor;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $base-font;
+  font-weight: bold;
+  padding: 5px 10px;
+}
 
 * {
   box-sizing: border-box;
@@ -215,22 +225,9 @@ label {
 }
 
 .page-btn {
-  background: $color-gray;
-  border-radius: 4px;
-  cursor: pointer;
-  display: inline-block;
-  font-size: $base-font;
-  font-weight: bold;
-  padding: 5px 10px;
+  @include pagination-elem($color-gray, $color-text);
 }
 
 .page-num {
-  background: $color-darkgray;
-  border-radius: 4px;
-  color: $color-white;
-  cursor: pointer;
-  display: inline-block;
-  font-size: $base-font;
-  font-weight: bold;
-  padding: 5px 10px;
+  @include pagination-elem($color-darkgray, $color-white);
 }
