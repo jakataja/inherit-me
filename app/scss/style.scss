@@ -14,7 +14,7 @@ $color-text: #333;
 
 $base-font: 12px;
 
-@mixin background( $bcolor, $hcolor) {
+@mixin background($bcolor, $hcolor) {
   background: $bcolor;
 
   &:hover {
