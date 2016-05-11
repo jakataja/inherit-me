@@ -36,7 +36,7 @@ function createListRow(data, index) {
   "use strict";
 
   var row, f, i, c, field,
-    fields = ["name",
+    fields = ["species",
       "price",
       "life",
       "flowers",
@@ -62,15 +62,12 @@ function createListRow(data, index) {
     row.appendChild(field);
   }
 
+
   // fill fields with data
-  for (f in data ) {
-    if (typeof data[f] !== "function" && f !== "pattern" && f !== "instance") {
+  for (f in data.options ) {
+    if (data.options.hasOwnProperty(f)) {
       c =  f.split(/[A-Z]/)[0];
-      if (c === "species") {
-        row.querySelector(".plant-name").innerHTML = data[f];
-      } else {
-        row.querySelector(".plant-" + c).innerHTML = data[f];
-      }
+      row.querySelector(".plant-" + c).innerHTML = data.options[f];
     }
   }
 
@@ -104,7 +101,8 @@ function renderList() {
 
   "use strict";
   currList.map(function (plant, i) {
-    if (i > displayRowsNum * currPage && i < displayRowsNum * (currPage + 1)) {
+    console.log(plant.options.species,i)
+    if (i >= displayRowsNum * currPage && i < displayRowsNum * (currPage + 1)) {
       createListRow(plant, i);
     }
   });
@@ -112,11 +110,13 @@ function renderList() {
 
 function sortList() {
 
+  console.log("sortList")
+
   "use strict";
   currList.sort(function (a, b) {
 
-    var A = a.species.toLowerCase(),
-      B = b.species.toLowerCase();
+    var A = a.getSpeciesName().toLowerCase(),
+      B = b.getSpeciesName().toLowerCase();
 
     if (A < B) {
       return -1;
