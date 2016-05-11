@@ -9,50 +9,45 @@ var PatternP = (function () {
     Child.prototype = new F();
   }
 
-  function Plant(arg) {
+  function Plant(options) {
     this.pattern = "prototypal";
-    this.species = arg.name;
-    this.price = arg.price || "brak";
-    this.lifeCycle = arg.lifeCycle || "-";
-    this.flowers = arg.flowers || "-";
+    this.options = options || {};
   }
 
   Plant.getPrice = function () {
-    return parseFloat(this.price);
+    return parseFloat(this.options.price);
+  };
+
+  Plant.getSpeciesName = function () {
+    return this.options.species;
   };
 
   /**************** Tree ***************/
 
-  function Tree(arg) {
-    Plant.call(this, arg);
-    this.leafs = arg.leafs || "-";
-    this.dustTime = arg.dust || "-";
-    this.fruits = arg.fruits || "-";
-    this.height = arg.height || "-";
+  function Tree(options) {
+    Plant.call(this, options);
   }
 
   inherits(Plant, Tree);
 
   Tree.prototype.isDustingIn = function (month) {
-    return this.dustTime === month ? true : false;
+    return this.options.dustTime === month ? true : false;
   };
 
   /**************** Flower ***************/
 
-  function Flower(arg) {
-    Plant.call(this, arg);
-    this.bloomTime = arg.bloom || "-";
-    this.environment = arg.environment || "-";
+  function Flower(options) {
+    Plant.call(this, options);
   }
 
   inherits(Plant, Flower);
 
   Flower.prototype.isGardenFlower = function () {
-    return this.environment.includes("garden") ? true : false;
+    return this.options.environment.includes("garden") ? true : false;
   };
 
   Flower.prototype.isHomeFlower = function () {
-    return this.environment.includes("house") ? true : false;
+    return this.options.environment.includes("house") ? true : false;
   };
 
   return {

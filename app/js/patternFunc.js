@@ -4,7 +4,7 @@ var PatternF = (function () {
 
   "use strict";
 
-  function plant(arg) {
+  /*function plant(arg) {
     var that = {};
     that.pattern = "functional";
     that.species = arg.name;
@@ -16,42 +16,51 @@ var PatternF = (function () {
       return this.price;
     };
     return that;
+  } */
+
+  function plant(options) {
+
+    var plantObject = {};
+    plantObject.pattern = "functional";
+    plantObject.options = options || {};
+
+    plantObject.getPrice = function () {
+      return parseFloat(this.options.price);
+    };
+
+    plantObject.getSpeciesName = function () {
+      return this.options.species;
+    };
+    return plantObject;
   }
 
   /**************** Tree ***************/
 
-  function tree(arg) {
-    var that = plant(arg);
-    that.instance = "Tree";
-    that.leafs = arg.leafs || "-";
-    that.dustTime = arg.dust || "-";
-    that.fruits = arg.fruits || "-";
-    that.height = arg.height || "-";
+  function tree(options) {
 
-    that.isDustingIn = function (month) {
-      return this.dustTime === month ? true : false;
+    var treeObject = plant(options);
+    treeObject.instance = "Tree";
+    treeObject.isDustingIn = function (month) {
+      return this.options.dustTime === month ? true : false;
     };
 
-    return that;
+    return treeObject;
   }
 
   /**************** Flower ***************/
 
-  function flower(arg) {
-    var that = plant(arg);
-    that.instance = "Flower";
-    that.bloomTime = arg.bloom || "-";
-    that.environment = arg.environment || "-";
+  function flower(options) {
 
-    that.isGardenFlower = function () {
-      return this.environment.includes("garden") ? true : false;
+    var flowerObject = plant(options);
+    flowerObject.instance = "Flower";
+    flowerObject.isGardenFlower = function () {
+      return this.options.environment.includes("garden") ? true : false;
+    };
+    flowerObject.isHomeFlower = function () {
+      return this.options.environment.includes("house") ? true : false;
     };
 
-    that.isHomeFlower = function () {
-      return this.environment.includes("house") ? true : false;
-    };
-
-    return that;
+    return flowerObject;
   }
 
   return {
