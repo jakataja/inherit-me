@@ -6,7 +6,7 @@ var App = (function () {
 
   "use strict";
 
-  var plants, pattern, currList, plantsList = [], /*displayRowsNum = 10,*/ currPage = 0,
+  var plants, pattern, currList, plantsList = [],
     selectedPattern = document.querySelector("#pattern"),
     housePlantsChbx = document.querySelector("#houseplants"),
     sortPriceChbx = document.querySelector("#sortprice"),
@@ -161,7 +161,7 @@ var App = (function () {
       nextBtn.addEventListener("click", List.nextPage);
       prevBtn.addEventListener("click", List.prevPage);
       housePlantsChbx.addEventListener("change", clickFilterHouseFlowers);
-      document.querySelector("#sortprice").addEventListener("change", clickSortByPrice);
+      sortPriceChbx.addEventListener("change", clickSortByPrice);
     },
 
     getPattern: function () {

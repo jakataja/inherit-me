@@ -70,7 +70,7 @@ var List = (function () {
 
   function renderRow(data, index) {
 
-    var row, f, i, c;
+    var row;
     row = createRowElement(data);
     createFields(row);
     setFieldsData(row, data);
@@ -92,10 +92,14 @@ var List = (function () {
   }
 
   function render(data) {
+
+    var minIndex = displayRowsNum * currPage,
+      maxIndex = displayRowsNum * (currPage + 1);
+
     clear();
     listData = data || listData;
     listData.map(function (plant, i) {
-      if (i >= displayRowsNum * currPage && i < displayRowsNum * (currPage + 1)) {
+      if (i >= minIndex && i < maxIndex) {
         renderRow(plant, i);
       }
     });
